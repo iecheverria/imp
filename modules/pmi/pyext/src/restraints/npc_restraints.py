@@ -609,7 +609,7 @@ class MembraneSurfaceLocationRestraint(object):
                                                   residue_indexes=range(protein[0],protein[1]),
                                                   copy_index = protein[3],
                                                   resolution=resolution).get_selected_particles()
-                    
+
             else:
                 residues = IMP.atom.Selection(hier,
                                               molecule=protein).get_selected_particles()
@@ -749,16 +749,16 @@ class MembraneExclusionRestraint(object):
                                                   residue_indexes=range(protein[0],protein[1]),
                                                   resolution=resolution).get_selected_particles()
                 elif len(protein)==4:
-                   residues = IMP.atom.Selection(hier,
-                                                 molecule=protein[2],
-                                                 residue_indexes=range(protein[0],protein[1]),
-                                                 copy_index = protein[3],
-                                                 resolution=resolution).get_selected_particles()
+                    residues = IMP.atom.Selection(hier,
+                                                  molecule=protein[2],
+                                                  residue_indexes=range(protein[0],protein[1]),
+                                                  copy_index = protein[3],
+                                                  resolution=resolution).get_selected_particles()
                 elif len(protein)==2:
-                   residues = IMP.atom.Selection(hier,
-                                                 molecule=protein[0],
-                                                 copy_index = protein[1],
-                                                 resolution=resolution).get_selected_particles()   
+                    residues = IMP.atom.Selection(hier,
+                                                  molecule=protein[0],
+                                                  copy_index = protein[1],
+                                                  resolution=resolution).get_selected_particles()
             else:
                 residues = IMP.atom.Selection(hier,
                                               molecule=protein).get_selected_particles()
@@ -790,4 +790,3 @@ class MembraneExclusionRestraint(object):
 
     def evaluate(self):
         return self.weight * self.rs.unprotected_evaluate(None)
-
